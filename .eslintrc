@@ -1,6 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
@@ -11,9 +12,12 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",
+    "@typescript-eslint/no-empty-function": "off",
     "react/no-unknown-property": ["error", { "ignore": ["css"] }]
   },
-  "plugins": ["react", "import", "jsx-a11y"],
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "plugins": ["react", "import", "jsx-a11y", "@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -30,6 +34,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }
