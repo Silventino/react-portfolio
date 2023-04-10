@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { ReactNode } from "react";
-import { calcPixels } from "../../helper";
 import Menu from "../Menu";
-import { MENU_SIZE_CLOSED } from "../Menu/Menu";
+import { MENU_SIZE_CLOSED, MENU_SIZE_OPEN } from "../Menu/Menu";
+import { css } from "@emotion/react";
+import { SM_SCREEN } from "../../helper";
 
 type Props = {
   hasMenu?: boolean;
@@ -18,7 +19,15 @@ const BaseComponent: React.FC<Props> = ({ hasMenu, children }) => {
   return (
     <div css={{ height: "100%", width: "100%" }}>
       <Menu />
-      <div css={{ paddingLeft: calcPixels(MENU_SIZE_CLOSED), height: "100%" }}>
+      <div
+        css={css`
+          height: 100%;
+          padding-left: 0px;
+          @media (min-width: ${SM_SCREEN}px) {
+            padding-left: ${MENU_SIZE_OPEN}px;
+          }
+        `}
+      >
         {children}
       </div>
     </div>

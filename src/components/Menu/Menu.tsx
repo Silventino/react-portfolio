@@ -1,23 +1,21 @@
 /** @jsxImportSource @emotion/react */
 
 import { useContext } from "react";
-import { calcPixels } from "../../helper";
 import { MenuContext } from "./MenuContext";
 import { useLocation } from "react-router-dom";
 
 import MenuItem from "./components/MenuItem";
 import HomeIcon from "./components/HomeIcon";
 import UserIcon from "./components/UserIcon";
+import { css } from "@emotion/react";
+import { SM_SCREEN } from "../../helper";
 
 export const MENU_SIZE_CLOSED = 80;
-export const MENU_SIZE_OPEN = 360;
-const MENU_PADDING_LEFT = 16;
+export const MENU_SIZE_OPEN = 250;
 
 const Menu = () => {
-  const { isMenuOpen, isMenuVisible } = useContext(MenuContext);
+  const { isMenuOpen } = useContext(MenuContext);
   const location = useLocation();
-
-  console.log("location", location);
 
   const menuItems = [
     {
@@ -38,37 +36,32 @@ const Menu = () => {
 
   return (
     <div
-      css={{
-        transition: "all 0.5s ease-in-out",
-        paddingLeft: calcPixels(16),
-        width: isMenuOpen
-          ? calcPixels(MENU_SIZE_OPEN - MENU_PADDING_LEFT)
-          : calcPixels(MENU_SIZE_CLOSED - MENU_PADDING_LEFT),
-        position: "absolute",
-        top: 0,
-        left: 0,
-        height: "100%",
-        opacity: isMenuVisible ? 1 : 0,
-      }}
+      css={css`
+        @media (max-width: ${SM_SCREEN}px) {
+          display: none;
+        }
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: ${MENU_SIZE_OPEN}px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 40px 40px 40px;
+        border-right: 1px solid hsla(0, 0%, 100%, 0.1);
+      `}
     >
-      <div
-        css={{
-          position: "relative",
-          top: "50%",
-          transform: "translateY(-50%)",
-        }}
-      >
-        {menuItems.map((item) => (
-          <MenuItem
-            key={item.name}
-            focused={location.pathname === item.url}
-            url={item.url}
-            icon={item.renderIcon(location.pathname === item.url)}
-            name={item.name}
-            showName={isMenuOpen}
-          />
-        ))}
-      </div>
+      {menuItems.map((item) => (
+        <MenuItem
+          key={item.name}
+          focused={location.pathname === item.url}
+          url={item.url}
+          icon={item.renderIcon(location.pathname === item.url)}
+          name={item.name}
+          showName={isMenuOpen}
+        />
+      ))}
     </div>
   );
 };

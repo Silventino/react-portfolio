@@ -2,7 +2,6 @@
 
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { calcPixels } from "../../../helper";
 
 type Props = {
   url: string;
@@ -14,29 +13,24 @@ type Props = {
 
 const MenuItem: React.FC<Props> = ({ url, icon, name, showName, focused }) => {
   return (
-    <Link to={url} css={{ display: "block" }}>
-      <button css={{ marginBottom: calcPixels(10) }}>
-        <div
+    <Link to={url} css={{ display: "flex", alignItems: "center", height: 50 }}>
+      <div css={{ height: 50, display: "flex", alignItems: "center" }}>
+        {icon}
+      </div>
+      {showName ? (
+        <p
           css={{
-            width: calcPixels(64),
-            height: calcPixels(64),
-            backgroundColor: focused ? "#181919" : "",
-            borderRadius: "50%",
+            margin: 0,
+            marginLeft: 25,
+            height: 50,
+            color: focused ? "#fff" : "#888",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <div
-            css={{
-              position: "relative",
-              top: "50%",
-              transform: "translateY(-50%)",
-            }}
-          >
-            {icon}
-          </div>
-        </div>
-
-        {showName ? <p>{name}</p> : null}
-      </button>
+          {name}
+        </p>
+      ) : null}
     </Link>
   );
 };
