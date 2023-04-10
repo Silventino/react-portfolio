@@ -2,35 +2,65 @@
 
 import { useContext } from "react";
 import { MenuContext } from "./MenuContext";
-import { useLocation } from "react-router-dom";
 
 import MenuItem from "./components/MenuItem";
-import HomeIcon from "./components/HomeIcon";
-import UserIcon from "./components/UserIcon";
 import { css } from "@emotion/react";
 import { SM_SCREEN } from "../../helper";
+import AboutIcon from "./components/icons/AboutIcon";
+import EducationIcon from "./components/icons/EducationIcon";
+import WorksIcon from "./components/icons/WorksIcon";
+import ContactIcon from "./components/icons/ContactIcon";
+import HomeIcon from "./components/icons/HomeIcon";
 
 export const MENU_SIZE_CLOSED = 80;
 export const MENU_SIZE_OPEN = 250;
 
 const Menu = () => {
   const { isMenuOpen } = useContext(MenuContext);
-  const location = useLocation();
 
   const menuItems = [
     {
-      url: "/",
+      url: "/#home",
       renderIcon: (isFocused: boolean) => (
-        <HomeIcon width={24} height={24} fill={isFocused ? "#fff" : "#888"} />
+        <HomeIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
       ),
       name: "Home",
     },
     {
-      url: "/account",
+      url: "/#about",
       renderIcon: (isFocused: boolean) => (
-        <UserIcon width={24} height={24} fill={isFocused ? "#fff" : "#888"} />
+        <AboutIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
       ),
-      name: "Minha Conta",
+      name: "About",
+    },
+    {
+      url: "/#experience",
+      renderIcon: (isFocused: boolean) => (
+        <EducationIcon
+          width={20}
+          height={20}
+          fill={isFocused ? "#fff" : "#888"}
+        />
+      ),
+      name: "Experience",
+    },
+    {
+      url: "/#portfolio",
+      renderIcon: (isFocused: boolean) => (
+        <WorksIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
+      ),
+      name: "Portfolio",
+    },
+    {
+      url: "/#contact",
+      renderIcon: (isFocused: boolean) => (
+        <ContactIcon
+          width={20}
+          height={20}
+          fill={isFocused ? "#fff" : "#888"}
+        />
+      ),
+      name: "Contact",
     },
   ];
 
@@ -55,9 +85,9 @@ const Menu = () => {
       {menuItems.map((item) => (
         <MenuItem
           key={item.name}
-          focused={location.pathname === item.url}
+          focused={false}
           url={item.url}
-          icon={item.renderIcon(location.pathname === item.url)}
+          icon={item.renderIcon(false)}
           name={item.name}
           showName={isMenuOpen}
         />

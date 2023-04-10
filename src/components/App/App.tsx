@@ -1,21 +1,20 @@
 /** @jsxImportSource @emotion/react */
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BaseComponent from "../BaseComponent";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <BaseComponent hasMenu>Home</BaseComponent>,
-  },
-  {
-    path: "/account",
-    element: <BaseComponent hasMenu>Minha Conta</BaseComponent>,
-  },
-]);
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <BaseComponent hasMenu>Home</BaseComponent>,
+//   },
+// ]);
+// function App() {
+//   return <RouterProvider router={router} />;
+// }
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <BaseComponent hasMenu>Home</BaseComponent>;
 }
 
 export default App;

@@ -13,7 +13,7 @@ type Props = {
 
 const MenuItem: React.FC<Props> = ({ url, icon, name, showName, focused }) => {
   return (
-    <Link to={url} css={{ display: "flex", alignItems: "center", height: 50 }}>
+    <a href={url} css={{ display: "flex", alignItems: "center", height: 50 }}>
       <div css={{ height: 50, display: "flex", alignItems: "center" }}>
         {icon}
       </div>
@@ -31,7 +31,7 @@ const MenuItem: React.FC<Props> = ({ url, icon, name, showName, focused }) => {
           {name}
         </p>
       ) : null}
-    </Link>
+    </a>
   );
 };
 
