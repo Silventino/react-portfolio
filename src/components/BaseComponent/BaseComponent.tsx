@@ -22,9 +22,9 @@ const BaseComponent: React.FC<Props> = ({ hasMenu, children }) => {
       <div
         css={css`
           height: 100%;
-          padding-left: 0px;
+          margin-left: 0px;
           @media (min-width: ${SM_SCREEN}px) {
-            padding-left: ${MENU_SIZE_OPEN}px;
+            margin-left: ${MENU_SIZE_OPEN}px;
           }
         `}
       >

@@ -3,10 +3,12 @@
 import BaseComponent from "../BaseComponent";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainPage from "../MainPage/MainPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>Home</h1>,
+    element: <MainPage />,
   },
 ]);
 
