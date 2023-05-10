@@ -1,36 +1,44 @@
 /** @jsxImportSource @emotion/react */
 
+import { useTheme } from "@mui/material";
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
 
 type Props = {
   url: string;
   icon: ReactNode;
   name: string;
-  showName: boolean;
   focused: boolean;
 };
 
-const MenuItem: React.FC<Props> = ({ url, icon, name, showName, focused }) => {
+const MenuItem: React.FC<Props> = ({ url, icon, name, focused }) => {
+  const theme = useTheme();
+  const focusedColor = theme.palette.secondary.main;
+
   return (
-    <a href={url} css={{ display: "flex", alignItems: "center", height: 50 }}>
+    <a
+      href={url}
+      css={{
+        display: "flex",
+        alignItems: "center",
+        height: 50,
+      }}
+    >
       <div css={{ height: 50, display: "flex", alignItems: "center" }}>
         {icon}
       </div>
-      {showName ? (
-        <p
-          css={{
-            margin: 0,
-            marginLeft: 25,
-            height: 50,
-            color: focused ? "#fff" : "#888",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          {name}
-        </p>
-      ) : null}
+      <p
+        css={{
+          margin: 0,
+          marginLeft: 20,
+          height: 50,
+          color: focused ? focusedColor : "#fff",
+          display: "flex",
+          alignItems: "center",
+          fontWeight: 700,
+        }}
+      >
+        {name}
+      </p>
     </a>
   );
 };

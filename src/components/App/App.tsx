@@ -2,19 +2,20 @@
 
 import BaseComponent from "../BaseComponent";
 
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <BaseComponent hasMenu>Home</BaseComponent>,
-//   },
-// ]);
-// function App() {
-//   return <RouterProvider router={router} />;
-// }
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <h1>Home</h1>,
+  },
+]);
 
 function App() {
-  return <BaseComponent hasMenu>Home</BaseComponent>;
+  return (
+    <BaseComponent hasMenu>
+      <RouterProvider router={router} />
+    </BaseComponent>
+  );
 }
 
 export default App;

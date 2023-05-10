@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import Menu from "../Menu";
-import { MENU_SIZE_CLOSED, MENU_SIZE_OPEN } from "../Menu/Menu";
+import { MENU_SIZE_OPEN } from "../Menu/Menu";
 import { css } from "@emotion/react";
 import { SM_SCREEN } from "../../helper";
 

@@ -1,98 +1,73 @@
 /** @jsxImportSource @emotion/react */
 
-import { useContext } from "react";
-import { MenuContext } from "./MenuContext";
-
+import CallIcon from "@mui/icons-material/Call";
+import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import SchoolIcon from "@mui/icons-material/School";
+import { Typography } from "@mui/material";
+import DrawerContainer from "./components/DrawerContainer";
 import MenuItem from "./components/MenuItem";
-import { css } from "@emotion/react";
-import { SM_SCREEN } from "../../helper";
-import AboutIcon from "./components/icons/AboutIcon";
-import EducationIcon from "./components/icons/EducationIcon";
-import WorksIcon from "./components/icons/WorksIcon";
-import ContactIcon from "./components/icons/ContactIcon";
-import HomeIcon from "./components/icons/HomeIcon";
 
-export const MENU_SIZE_CLOSED = 80;
-export const MENU_SIZE_OPEN = 250;
+export const MENU_SIZE_OPEN = 220;
+
+const menuItems = [
+  {
+    url: "/#home",
+    icon: <HomeIcon color="secondary" />,
+    name: "Home",
+  },
+  {
+    url: "/#about",
+    icon: <PersonIcon color="secondary" />,
+    name: "About",
+  },
+  {
+    url: "/#experience",
+    icon: <SchoolIcon color="secondary" />,
+    name: "Experience",
+  },
+  {
+    url: "/#portfolio",
+    icon: <CollectionsBookmarkIcon color="secondary" />,
+    name: "Portfolio",
+  },
+  {
+    url: "/#contact",
+    icon: <CallIcon color="secondary" />,
+    name: "Contact",
+  },
+];
 
 const Menu = () => {
-  const { isMenuOpen } = useContext(MenuContext);
-
-  const menuItems = [
-    {
-      url: "/#home",
-      renderIcon: (isFocused: boolean) => (
-        <HomeIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
-      ),
-      name: "Home",
-    },
-    {
-      url: "/#about",
-      renderIcon: (isFocused: boolean) => (
-        <AboutIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
-      ),
-      name: "About",
-    },
-    {
-      url: "/#experience",
-      renderIcon: (isFocused: boolean) => (
-        <EducationIcon
-          width={20}
-          height={20}
-          fill={isFocused ? "#fff" : "#888"}
-        />
-      ),
-      name: "Experience",
-    },
-    {
-      url: "/#portfolio",
-      renderIcon: (isFocused: boolean) => (
-        <WorksIcon width={20} height={20} fill={isFocused ? "#fff" : "#888"} />
-      ),
-      name: "Portfolio",
-    },
-    {
-      url: "/#contact",
-      renderIcon: (isFocused: boolean) => (
-        <ContactIcon
-          width={20}
-          height={20}
-          fill={isFocused ? "#fff" : "#888"}
-        />
-      ),
-      name: "Contact",
-    },
-  ];
-
   return (
-    <div
-      css={css`
-        @media (max-width: ${SM_SCREEN}px) {
-          display: none;
-        }
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: ${MENU_SIZE_OPEN}px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 50px 40px 40px 40px;
-        border-right: 1px solid hsla(0, 0%, 100%, 0.1);
-      `}
-    >
-      {menuItems.map((item) => (
-        <MenuItem
-          key={item.name}
-          focused={false}
-          url={item.url}
-          icon={item.renderIcon(false)}
-          name={item.name}
-          showName={isMenuOpen}
-        />
-      ))}
-    </div>
+    <DrawerContainer>
+      <Typography
+        variant="h5"
+        color="white"
+        align="center"
+        fontWeight={900}
+        fontSize={30}
+      >
+        silventino<span style={{ color: "#f00" }}>.</span>
+      </Typography>
+
+      <div>
+        {menuItems.map((item) => (
+          <MenuItem
+            key={item.name}
+            focused={false}
+            url={item.url}
+            icon={item.icon}
+            name={item.name}
+          />
+        ))}
+      </div>
+
+      <Typography color="grey" align="center">
+        &copy; silventino
+      </Typography>
+    </DrawerContainer>
   );
 };
 
