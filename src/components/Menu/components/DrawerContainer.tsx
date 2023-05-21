@@ -3,6 +3,7 @@
 import { Drawer, useTheme } from "@mui/material";
 import { useState } from "react";
 import { MENU_SIZE_OPEN } from "../Menu";
+import { grey } from "@mui/material/colors";
 
 type Props = {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ const DrawerContainer: React.FC<Props> = ({ children }) => {
     backgroundColor: primaryColor,
     width: MENU_SIZE_OPEN,
     padding: "56px 40px 16px 40px",
+    borderColor: grey[800],
   };
 
   return (
