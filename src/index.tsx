@@ -23,6 +23,31 @@ const theme = createTheme({
   },
 });
 
+theme.typography = {
+  ...theme.typography,
+  h1: {
+    ...theme.typography.h1,
+    fontSize: "3rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "5rem",
+    },
+  },
+  h2: {
+    ...theme.typography.h2,
+    fontSize: "3rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "4rem",
+    },
+  },
+  h3: {
+    ...theme.typography.h3,
+    fontSize: "1.5rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2.5rem",
+    },
+  },
+};
+
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

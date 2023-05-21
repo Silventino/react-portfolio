@@ -36,21 +36,11 @@ const HomeSection: React.FC<Props> = ({ id }) => {
           height={"100%"}
           maxWidth={"900px"}
         >
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant="h1"
-              fontWeight={600}
-              color={"white"}
-              fontSize={70}
-            >
+          <Grid item xs={12} sm={6}>
+            <Typography variant="h1" fontWeight={600} color={"white"}>
               {"Hi,"}
             </Typography>
-            <Typography
-              variant="h1"
-              fontWeight={600}
-              color={"white"}
-              fontSize={70}
-            >
+            <Typography variant="h1" fontWeight={600} color={"white"}>
               {"I'm "}
               <span color="secondary">Pedro</span>
             </Typography>
@@ -62,10 +52,9 @@ const HomeSection: React.FC<Props> = ({ id }) => {
                 "Mobile developer",
                 "Cat lover ♥",
               ]}
-              variant="h1"
+              variant="h3"
               fontWeight={300}
               color={"white"}
-              fontSize={30}
             />
 
             <div
@@ -73,6 +62,11 @@ const HomeSection: React.FC<Props> = ({ id }) => {
                 margin-top: 10px;
                 left: -12px;
                 position: relative;
+                ${theme.breakpoints.down("sm")} {
+                  display: flex;
+                  justify-content: center;
+                  margin-top: 25px;
+                },
               `}
             >
               <IconButton
@@ -113,7 +107,7 @@ const HomeSection: React.FC<Props> = ({ id }) => {
             </div>
           </Grid>
 
-          <Grid item xs={12} md={6} display={"flex"} alignItems={"center"}>
+          <Grid item xs={12} sm={6} display={"flex"} alignItems={"center"}>
             <img
               src="/assets/me.png"
               alt="Pedro"
