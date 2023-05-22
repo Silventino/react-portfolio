@@ -10,7 +10,11 @@ type Props = {
 
 export default function Typewriter({ label, value, color }: Props) {
   return (
-    <div>
+    <div
+      css={css`
+        margin-bottom: 10px;
+      `}
+    >
       <div
         css={css`
           display: flex;
