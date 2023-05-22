@@ -34,9 +34,9 @@ theme.typography = {
   },
   h2: {
     ...theme.typography.h2,
-    fontSize: "3rem",
+    fontSize: "2rem",
     [theme.breakpoints.up("md")]: {
-      fontSize: "4rem",
+      fontSize: "3rem",
     },
   },
   h3: {

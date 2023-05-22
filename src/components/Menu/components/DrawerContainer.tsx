@@ -38,7 +38,7 @@ const DrawerContainer: React.FC<Props> = ({ children }) => {
           keepMounted: true,
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", sm: "block", md: "none" },
           "& .MuiDrawer-paper": defaultMenuStyles,
         }}
       >
@@ -48,7 +48,7 @@ const DrawerContainer: React.FC<Props> = ({ children }) => {
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", sm: "none", md: "block" },
           "& .MuiDrawer-paper": defaultMenuStyles,
         }}
         open

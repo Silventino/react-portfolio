@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
+import { grey } from "@mui/material/colors";
 
 type Props = {
   id: string;
@@ -14,7 +15,7 @@ const SectionContainer: React.FC<Props> = ({ id, children, color }) => {
       css={css`
         height: 100vh;
         width: 100%;
-        background-color: ${color ? color : "#eee"};
+        background-color: ${color ? color : grey[300]};
         overflow: hidden;
         padding: 50px;
       `}

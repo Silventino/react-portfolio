@@ -66,7 +66,7 @@ const HomeSection: React.FC<Props> = ({ id }) => {
                   display: flex;
                   justify-content: center;
                   margin-top: 25px;
-                },
+                }
               `}
             >
               <IconButton

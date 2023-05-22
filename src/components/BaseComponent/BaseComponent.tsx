@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import Menu from "../Menu";
 import { MENU_SIZE_OPEN } from "../Menu/Menu";
 import { css } from "@emotion/react";
-import { SM_SCREEN } from "../../helper";
+import { useTheme } from "@mui/material";
 
 type Props = {
   hasMenu?: boolean;
@@ -12,6 +12,7 @@ type Props = {
 };
 
 const BaseComponent: React.FC<Props> = ({ hasMenu, children }) => {
+  const theme = useTheme();
   if (!hasMenu) {
     return <div css={{ height: "100%", width: "100%" }}>{children}</div>;
   }
@@ -23,7 +24,7 @@ const BaseComponent: React.FC<Props> = ({ hasMenu, children }) => {
         css={css`
           height: 100%;
           margin-left: 0px;
-          @media (min-width: ${SM_SCREEN}px) {
+          ${theme.breakpoints.up("md")} {
             margin-left: ${MENU_SIZE_OPEN}px;
           }
         `}
