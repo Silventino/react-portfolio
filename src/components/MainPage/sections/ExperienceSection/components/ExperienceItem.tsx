@@ -21,7 +21,7 @@ const ExperienceItem: React.FC<Props> = ({
   return (
     <div
       css={css`
-        margin-bottom: 20px;
+        margin-bottom: 35px;
         position: relative;
       `}
     >
