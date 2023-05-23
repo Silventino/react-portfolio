@@ -46,6 +46,13 @@ theme.typography = {
       fontSize: "2.5rem",
     },
   },
+  h5: {
+    ...theme.typography.h3,
+    fontSize: "1.2rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.5rem",
+    },
+  },
 };
 
 root.render(

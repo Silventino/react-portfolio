@@ -49,8 +49,8 @@ const AboutContent: React.FC = () => {
       <div
         css={css`
           box-shadow: 0 5px 20px 0 rgba(69, 67, 96, 0.1);
-          background-color: white;
           border-radius: 20px;
+          background-color: white;
           padding: 40px;
           ${theme.breakpoints.down("sm")} {
             padding: 20px;
