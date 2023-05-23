@@ -1,11 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { Grid, IconButton, Typography, css, useTheme } from "@mui/material";
+import { Grid, Typography, css, useTheme } from "@mui/material";
 import SectionContainer from "../../../SectionContainer/SectionContainer";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import MailIcon from "@mui/icons-material/Mail";
 import { Typewriter } from "../../../Typewriter";
 import SocialMediaButtons from "./components/SocialMediaButtons";
 
@@ -19,6 +15,8 @@ const HomeSection: React.FC<Props> = ({ id }) => {
 
   return (
     <SectionContainer id={id} color={primaryColor}>
+      <div />
+
       <Grid
         container
         display={"flex"}
@@ -58,6 +56,8 @@ const HomeSection: React.FC<Props> = ({ id }) => {
           />
         </Grid>
       </Grid>
+
+      <div />
     </SectionContainer>
   );
 };

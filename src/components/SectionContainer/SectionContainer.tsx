@@ -21,7 +21,7 @@ const SectionContainer: React.FC<Props> = ({ id, children, color }) => {
         align-items: center;
         justify-content: space-between;
 
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         background-color: ${color ? color : "#f9f9ff"};
         overflow: hidden;

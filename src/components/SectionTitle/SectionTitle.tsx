@@ -6,7 +6,13 @@ type Props = {
 
 const SectionTitle: React.FC<Props> = ({ children }) => {
   return (
-    <Typography variant="h2" fontWeight={600} color={"primary"} width={"100%"}>
+    <Typography
+      variant="h2"
+      fontWeight={600}
+      color={"primary"}
+      width={"100%"}
+      marginBottom={2}
+    >
       {children}
     </Typography>
   );

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { Hidden, Typography, css } from "@mui/material";
+import { Typography, css } from "@mui/material";
 
 type Props = {
   title: string;
@@ -21,9 +21,7 @@ const ExperienceItem: React.FC<Props> = ({ title, date, description }) => {
       <Typography fontWeight={100} fontSize={"0.9rem"} marginBottom={1}>
         {date}
       </Typography>
-      <Hidden smDown>
-        <Typography>{description}</Typography>
-      </Hidden>
+      <Typography>{description}</Typography>
     </div>
   );
 };
