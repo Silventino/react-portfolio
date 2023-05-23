@@ -2,19 +2,51 @@
 
 import { Typography, css } from "@mui/material";
 
+import SchoolIcon from "@mui/icons-material/School";
+import WorkIcon from "@mui/icons-material/Work";
+
 type Props = {
   title: string;
   date: string;
   description: string;
+  type: "SCHOOL" | "WORK";
 };
 
-const ExperienceItem: React.FC<Props> = ({ title, date, description }) => {
+const ExperienceItem: React.FC<Props> = ({
+  title,
+  date,
+  description,
+  type,
+}) => {
   return (
     <div
       css={css`
         margin-bottom: 20px;
+        position: relative;
       `}
     >
+      {type === "SCHOOL" ? (
+        <SchoolIcon
+          color={"secondary"}
+          css={css`
+            position: absolute;
+            left: -38px;
+            background-color: white;
+            height: 30px;
+          `}
+        />
+      ) : (
+        <WorkIcon
+          color={"secondary"}
+          css={css`
+            position: absolute;
+            left: -38px;
+            background-color: white;
+            height: 30px;
+          `}
+        />
+      )}
+
       <Typography variant="h5" color={"primary"} fontWeight={"bold"}>
         {title}
       </Typography>
