@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
+import { useTheme } from "@mui/material";
 import SectionContainer from "../../../SectionContainer/SectionContainer";
 import { SectionTitle } from "../../../SectionTitle";
-import { Typography, useTheme } from "@mui/material";
 import ExperienceItem from "./components/ExperienceItem";
-import { red } from "@mui/material/colors";
 
 type Props = {
   id: string;

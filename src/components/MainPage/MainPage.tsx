@@ -1,14 +1,14 @@
 /** @jsxImportSource @emotion/react */
 
 import CallIcon from "@mui/icons-material/Call";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
+// import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import SchoolIcon from "@mui/icons-material/School";
 import HomeSection from "./sections/HomeSection";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
-import PortfolioSection from "./sections/PortfolioSection";
+// import PortfolioSection from "./sections/PortfolioSection";
 import ContactSection from "./sections/ContactSection";
 
 export const menuItems = [

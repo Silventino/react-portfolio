@@ -3,7 +3,6 @@
 // eslint-disable-next-line import/named
 import { css } from "@emotion/react";
 import { useTheme } from "@mui/material";
-import { grey } from "@mui/material/colors";
 
 type Props = {
   id: string;
