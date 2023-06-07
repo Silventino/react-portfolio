@@ -25,7 +25,7 @@ const AboutContent: React.FC = () => {
       `}
     >
       <img
-        src="/assets/me.png"
+        src="/assets/me_round.png"
         alt="Pedro"
         css={css`
           max-width: 200px;

@@ -19,7 +19,8 @@ const AboutFooter: React.FC = () => {
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => alert("todo")}
+          href="https://drive.google.com/file/d/1SqEC_wYSA7zderUzXW4o9d9Z8KM5_iZg/view?usp=sharing"
+          target="_blank"
         >
           Download CV
         </Button>

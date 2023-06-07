@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { Typography, css } from "@mui/material";
+import { Typography, css, useTheme } from "@mui/material";
 
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
@@ -18,6 +18,8 @@ const ExperienceItem: React.FC<Props> = ({
   description,
   type,
 }) => {
+  const theme = useTheme();
+
   return (
     <div
       css={css`
@@ -27,7 +29,8 @@ const ExperienceItem: React.FC<Props> = ({
     >
       {type === "SCHOOL" ? (
         <SchoolIcon
-          color={"secondary"}
+          // color={"secondary"}
+          htmlColor={theme.palette.secondary.dark}
           css={css`
             position: absolute;
             left: -38px;
@@ -37,7 +40,8 @@ const ExperienceItem: React.FC<Props> = ({
         />
       ) : (
         <WorkIcon
-          color={"secondary"}
+          // color={"secondary"}
+          htmlColor={theme.palette.secondary.dark}
           css={css`
             position: absolute;
             left: -38px;

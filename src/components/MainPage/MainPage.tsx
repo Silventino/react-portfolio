@@ -30,12 +30,12 @@ export const menuItems = [
     component: <ExperienceSection id="experience" />,
     name: "Experience",
   },
-  {
-    url: "/#portfolio",
-    icon: <CollectionsBookmarkIcon color="secondary" />,
-    component: <PortfolioSection id="portfolio" />,
-    name: "Portfolio",
-  },
+  // {
+  //   url: "/#portfolio",
+  //   icon: <CollectionsBookmarkIcon color="secondary" />,
+  //   component: <PortfolioSection id="portfolio" />,
+  //   name: "Portfolio",
+  // },
   {
     url: "/#contact",
     icon: <CallIcon color="secondary" />,

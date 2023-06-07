@@ -38,7 +38,7 @@ const ExperienceSection: React.FC<Props> = ({ id }) => {
         <div
           css={css`
             width: 6px;
-            background-color: ${theme.palette.primary.main};
+            background-color: ${theme.palette.primary.light};
           `}
         />
 
