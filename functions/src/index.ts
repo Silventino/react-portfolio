@@ -1,23 +1,14 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
 import { onRequest } from "firebase-functions/v2/https";
 import { createTransport } from "nodemailer";
 import { defineString } from "firebase-functions/params";
 
 const BREVO_SMTP_KEY = defineString("BREVO_SMTP_KEY");
 
-export const sendMail = onRequest((request, response) => {
-  let transporter = createTransport({
+export const newsendmail = onRequest((request, response) => {
+  const transporter = createTransport({
     host: "smtp-relay.sendinblue.com",
     port: 465,
-    secure: true, // upgrade later with STARTTLS
+    secure: true,
     auth: {
       user: "silventino.dev@gmail.com",
       pass: BREVO_SMTP_KEY.value(),
@@ -34,7 +25,7 @@ export const sendMail = onRequest((request, response) => {
     `,
   };
 
-  return transporter.sendMail(mailOptions, (erro, info) => {
+  return transporter.sendMail(mailOptions, (erro) => {
     if (erro) {
       return response.send(erro.toString());
     }
