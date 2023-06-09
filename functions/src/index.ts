@@ -20,10 +20,14 @@ export const newsendmail = onRequest((request, response) => {
     to: "silventino.dev@gmail.com",
     subject: `Contact Form - ${request.body.subject}`,
     html: `
-      <p>From: ${request.body.name} <${request.body.email}></p>
+      <p>From: ${request.body.name} - ${request.body.email}</p>
       <p>Message: ${request.body.message}</p>
     `,
   };
+
+  response.set("Access-Control-Allow-Origin", "*");
+  response.set("Access-Control-Allow-Methods", "POST");
+  response.set("Access-Control-Allow-Headers", "Content-Type");
 
   return transporter.sendMail(mailOptions, (erro) => {
     if (erro) {

@@ -1,15 +1,46 @@
 /** @jsxImportSource @emotion/react */
 
-import { Button, Grid, TextField, css, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  TextField,
+  Typography,
+  css,
+  useTheme,
+} from "@mui/material";
 import SectionContainer from "../../../SectionContainer/SectionContainer";
 import { SectionTitle } from "../../../SectionTitle";
+import { useState } from "react";
 
 type Props = {
   id: string;
 };
 
+// https://newsendmail-ue6mig43hq-uc.a.run.app
+
 const ContactSection: React.FC<Props> = ({ id }) => {
   const theme = useTheme();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [sent, setSent] = useState(false);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const handleSubmit = async () => {
+    await fetch("https://newsendmail-ue6mig43hq-uc.a.run.app", {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify({ name, email, subject, message }),
+    });
+
+    setSent(true);
+  };
+
   return (
     <SectionContainer id={id}>
       <SectionTitle>Get in Touch</SectionTitle>
@@ -31,26 +62,72 @@ const ContactSection: React.FC<Props> = ({ id }) => {
           }
         `}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <TextField label="Your Name" fullWidth />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField label="Email" fullWidth />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField label="Subject" fullWidth />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField label="Message" fullWidth multiline rows={5} />
-          </Grid>
+        {sent ? (
+          <Box
+            display={"flex"}
+            alignItems={"center"}
+            flexDirection={"column"}
+            flex={1}
+          >
+            <Typography fontSize={80}>🎉</Typography>
+            <Typography variant="h3" fontWeight={"bold"} marginBottom={2}>
+              Message sent!
+            </Typography>
+            <Typography textAlign={"center"}>
+              Thank you for your message!
+            </Typography>
+            <Typography textAlign={"center"}>
+              I'll get back to you as soon as possible.
+            </Typography>
+          </Box>
+        ) : (
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                label="Your Name"
+                onChange={(e) => setName(e.target.value)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                label="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Subject"
+                onChange={(e) => setSubject(e.target.value)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Message"
+                onChange={(e) => setMessage(e.target.value)}
+                fullWidth
+                multiline
+                rows={5}
+              />
+            </Grid>
 
-          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-            <Button variant="contained" color="secondary">
-              Send Message
-            </Button>
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleSubmit}
+              >
+                Send Message
+              </Button>
+            </Grid>
           </Grid>
-        </Grid>
+        )}
       </div>
 
       <div />
