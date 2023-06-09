@@ -43,7 +43,7 @@ export default function Typewriter({
     }, 100);
 
     return () => clearTimeout(timeoutId);
-  }, [text, writing]);
+  }, [index, phrases, text, writing]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -62,7 +62,7 @@ export default function Typewriter({
     }, 400);
 
     return () => clearTimeout(timeoutId);
-  }, [blinking, blinkCount]);
+  }, [blinking, blinkCount, showCursor]);
 
   return (
     <Typography {...typographyProps}>
