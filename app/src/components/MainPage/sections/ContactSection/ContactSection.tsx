@@ -3,6 +3,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Grid,
   TextField,
   Typography,
@@ -17,14 +18,13 @@ type Props = {
   id: string;
 };
 
-// https://newsendmail-ue6mig43hq-uc.a.run.app
-
 const ContactSection: React.FC<Props> = ({ id }) => {
   const theme = useTheme();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [sent, setSent] = useState(false);
 
@@ -32,12 +32,14 @@ const ContactSection: React.FC<Props> = ({ id }) => {
   myHeaders.append("Content-Type", "application/json");
 
   const handleSubmit = async () => {
+    setLoading(true);
     await fetch("https://newsendmail-ue6mig43hq-uc.a.run.app", {
       method: "POST",
       headers: myHeaders,
       body: JSON.stringify({ name, email, subject, message }),
     });
 
+    setLoading(false);
     setSent(true);
   };
 
@@ -85,6 +87,7 @@ const ContactSection: React.FC<Props> = ({ id }) => {
             <Grid item xs={12} md={6}>
               <TextField
                 label="Your Name"
+                disabled={loading}
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
               />
@@ -92,6 +95,7 @@ const ContactSection: React.FC<Props> = ({ id }) => {
             <Grid item xs={12} md={6}>
               <TextField
                 label="Email"
+                disabled={loading}
                 onChange={(e) => setEmail(e.target.value)}
                 fullWidth
               />
@@ -99,6 +103,7 @@ const ContactSection: React.FC<Props> = ({ id }) => {
             <Grid item xs={12}>
               <TextField
                 label="Subject"
+                disabled={loading}
                 onChange={(e) => setSubject(e.target.value)}
                 fullWidth
               />
@@ -106,6 +111,7 @@ const ContactSection: React.FC<Props> = ({ id }) => {
             <Grid item xs={12}>
               <TextField
                 label="Message"
+                disabled={loading}
                 onChange={(e) => setMessage(e.target.value)}
                 fullWidth
                 multiline
@@ -118,13 +124,17 @@ const ContactSection: React.FC<Props> = ({ id }) => {
               xs={12}
               sx={{ display: "flex", justifyContent: "center" }}
             >
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={handleSubmit}
-              >
-                Send Message
-              </Button>
+              {loading ? (
+                <CircularProgress color="secondary" />
+              ) : (
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleSubmit}
+                >
+                  Send Message
+                </Button>
+              )}
             </Grid>
           </Grid>
         )}
