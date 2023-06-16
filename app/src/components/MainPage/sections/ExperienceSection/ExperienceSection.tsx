@@ -94,6 +94,7 @@ const ExperienceSection: React.FC<Props> = ({ id }) => {
               University of Lavras with a remarkable average score of 90/100.
             "
             type="SCHOOL"
+            removeMarginBottom
           />
         </div>
       </div>

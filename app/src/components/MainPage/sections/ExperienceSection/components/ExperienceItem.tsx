@@ -10,6 +10,7 @@ type Props = {
   date: string;
   description: string;
   type: "SCHOOL" | "WORK";
+  removeMarginBottom?: boolean;
 };
 
 const ExperienceItem: React.FC<Props> = ({
@@ -17,13 +18,14 @@ const ExperienceItem: React.FC<Props> = ({
   date,
   description,
   type,
+  removeMarginBottom = false,
 }) => {
   const theme = useTheme();
 
   return (
     <div
       css={css`
-        margin-bottom: 35px;
+        margin-bottom: ${removeMarginBottom ? "0px" : "30px"};
         position: relative;
       `}
     >
