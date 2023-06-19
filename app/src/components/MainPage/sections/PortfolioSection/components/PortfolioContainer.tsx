@@ -13,7 +13,8 @@ const PortfolioContainer: React.FC<Props> = ({ children }) => {
       spacing={4}
       display={"flex"}
       justifyContent={"center"}
-      alignItems={"center"}
+      // alignItems={"center"}
+      maxWidth={"900px"}
     >
       {children}
     </Grid>
