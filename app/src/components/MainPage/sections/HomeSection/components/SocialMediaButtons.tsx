@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -25,6 +26,15 @@ const SocialMediaButtons: React.FC = () => {
       <IconButton
         size="large"
         color="secondary"
+        href="https://github.com/Silventino"
+        target="_blank"
+      >
+        <GitHubIcon />
+      </IconButton>
+
+      <IconButton
+        size="large"
+        color="secondary"
         href="https://linkedin.com/in/silventino"
         target="_blank"
       >
@@ -38,15 +48,6 @@ const SocialMediaButtons: React.FC = () => {
         target="_blank"
       >
         <TwitterIcon />
-      </IconButton>
-
-      <IconButton
-        size="large"
-        color="secondary"
-        href="https://www.instagram.com/silventino/"
-        target="_blank"
-      >
-        <InstagramIcon />
       </IconButton>
 
       <IconButton
