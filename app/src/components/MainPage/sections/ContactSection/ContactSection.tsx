@@ -33,14 +33,23 @@ const ContactSection: React.FC<Props> = ({ id }) => {
 
   const handleSubmit = async () => {
     setLoading(true);
-    await fetch("https://newsendmail-ue6mig43hq-uc.a.run.app", {
-      method: "POST",
-      headers: myHeaders,
-      body: JSON.stringify({ name, email, subject, message }),
-    });
+    try {
+      if (!name || !email || !subject || !message) {
+        throw new Error("Please fill out all the fields");
+      }
+
+      await fetch("https://newsendmail-ue6mig43hq-uc.a.run.app", {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+      setSent(true);
+    } catch (err: any) {
+      alert(err.message ?? "An error occurred. Please try again later.");
+      console.error(err);
+    }
 
     setLoading(false);
-    setSent(true);
   };
 
   return (
